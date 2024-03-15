@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 const MainS1 = () => {
   const { lists } = useSelector((state) => state.videoList);
   const mainList = lists && lists.filter((list) => list.type === "main");
-
   return (
     <div className="main_s1">
       <YouTube

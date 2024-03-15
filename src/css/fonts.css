@@ -1,24 +1,18 @@
 @font-face {
-  font-family: "SegoeUI";
+  font-family: "NotoSansKR";
   font-style: normal;
   font-weight: 200;
-  src: url(fonts/SEGOEUIL.TTF) format("truetype");
+  src: url(fonts/NotoSansKR-Light.ttf) format("truetype");
 }
 @font-face {
-  font-family: "SegoeUI";
+  font-family: "NotoSansKR";
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/SEGOEUI.TTF) format("truetype");
+  src: url(fonts/NotoSansKR-Regular.ttf) format("truetype");
 }
 @font-face {
-  font-family: "SegoeUI";
+  font-family: "NotoSansKR";
   font-style: normal;
   font-weight: 700;
-  src: url(fonts/SEGOEUIB.TTF) format("truetype");
-}
-@font-face {
-  font-family: "SegoeUI";
-  font-style: normal;
-  font-weight: 900;
-  src: url(fonts/SEGUIBL.TTF) format("truetype");
+  src: url(fonts/NotoSansKR-Bold.ttf) format("truetype");
 }
