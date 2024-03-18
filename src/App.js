@@ -11,6 +11,7 @@ import Main from "./components/main/main";
 import About from "./components/about/about";
 import Portfolio from "./components/portfolio/portfolio";
 import Contact from "./components/contact/contact";
+import Nav from "./components/nav.js";
 import Admin from "./adminComponents/admin.js";
 import AdminLogin from "./adminComponents/adminLogin.js";
 import AdminSignup from "./adminComponents/adminSignup.js";
@@ -31,6 +32,7 @@ function App() {
   return (
     <>
       <Header page={currentPage} />
+      <Nav />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Main />} />

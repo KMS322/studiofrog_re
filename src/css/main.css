@@ -233,9 +233,45 @@
   letter-spacing: -0.05vw;
 }
 .main_s4 .article_container .video_box_container {
-  width: 79.6%;
+  width: 68.91vw;
   height: 100%;
-  border: 1px solid red;
+  overflow-x: auto;
+  position: relative;
+  border: 1px solid blue;
+}
+.main_s4 .article_container .video_box_container::-webkit-scrollbar {
+  display: none;
+}
+.main_s4 .article_container .video_box_container {
+  scrollbar-width: none;
+}
+.main_s4 .article_container .video_box_container .video_scroll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 3s ease;
+}
+.main_s4 .article_container .video_box_container .video_scroll > img {
+  width: 33.33vw;
+  height: 18.75vw;
+  margin-right: 2.25vw;
+}
+.main_s4
+  .article_container
+  .video_box_container
+  .video_scroll
+  > img:nth-child(2n-1) {
+  margin-top: auto;
+}
+.main_s4
+  .article_container
+  .video_box_container
+  .video_scroll
+  > img:last-child {
+  margin-right: 0;
 }
 .main_s4 .btn_box {
   width: 5.63%;
@@ -257,4 +293,182 @@
   margin-top: 0.5vw;
   margin-left: 28vw;
   cursor: pointer;
+}
+
+/* main_s5 */
+.main_s5 {
+  width: 100%;
+  height: 56.25vw;
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.main_s5 > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main_s5 .article_container {
+  width: 92.71%;
+  height: 30.46%;
+  display: flex;
+}
+.main_s5 .article_container .text_box {
+  width: 71.74%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main_s5 .article_container .text_box > p {
+  font-size: 1.88vw;
+  color: white;
+  font-weight: 400;
+  margin-top: 3vw;
+  line-height: 3.2vw;
+  letter-spacing: -0.05vw;
+  margin-left: 18vw;
+}
+.main_s5 .article_container .text_box .contact_box {
+  width: 100%;
+  height: 37.08%;
+  background-color: rgba(1, 1, 1, 0.47);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.main_s5 .article_container .text_box .contact_box p {
+  font-size: 2.66vw;
+  font-weight: 200;
+  color: white;
+  margin-right: 2vw;
+  cursor: pointer;
+}
+.main_s5 .article_container .text_box .contact_box img {
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-right: 3vw;
+  margin-top: 0.4vw;
+  cursor: pointer;
+}
+.main_s5 .article_container .img_box {
+  width: 28.26%;
+  height: 100%;
+}
+.main_s5 .article_container .img_box img {
+  width: 100%;
+  height: 100%;
+}
+
+/* main_s6 */
+.main_s6 {
+  width: 100%;
+  height: 56.25vw;
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_s6 > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main_s6 p:nth-child(2) {
+  font-size: 3.13vw;
+  font-weight: 700;
+  color: white;
+  margin-top: 8.59vw;
+  opacity: 0;
+}
+.main_s6 p:nth-child(3) {
+  font-size: 1.3vw;
+  font-weight: 200;
+  color: white;
+  margin-top: 3.13vw;
+  opacity: 0;
+}
+.main_s6 .logo_container {
+  width: 56.65vw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4.69vw;
+  opacity: 0;
+}
+.main_s6 > .animate_s6 {
+  animation: mainS6 2s ease forwards;
+}
+@keyframes mainS6 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.main_s6 .logo_container img {
+  width: 6.25vw;
+  height: 3.125vw;
+  margin-right: 6.33vw;
+  margin-bottom: 2.29vw;
+}
+.main_s6 .logo_container img:nth-child(5n) {
+  margin-right: 0;
+}
+
+/* main_s7 */
+.main_s7 {
+  width: 100%;
+  height: 33.33vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main_s7 > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main_s7 .text_box {
+  width: 55.42%;
+  height: 26.56%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.main_s7 .text_box p {
+  font-size: 2.76vw;
+  font-weight: 700;
+  color: white;
+  line-height: normal;
+  letter-spacing: -0.05vw;
+}
+.main_s7 .text_box p:nth-child(2) {
+  font-weight: 400;
+}
+.main_s7 .text_box p span {
+  opacity: 0;
+}
+.main_s7 .text_box img {
+  width: 15.89vw;
+  height: 1.82vw;
+  position: absolute;
+  bottom: 0.8vw;
+  right: 15vw;
 }
