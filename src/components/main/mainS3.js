@@ -41,6 +41,7 @@ const MainS3 = () => {
       </video>
       <div className="article_container" ref={tagRef}>
         <div className="article">
+          <p>SOFT WORK</p>
           <img src="/images/main_s3_img1.png" alt="" />
           <div className="text_box">
             <p className="korean">홈페이지 제작</p>
@@ -54,6 +55,8 @@ const MainS3 = () => {
           </div>
         </div>
         <div className="article">
+          <p>DESIGN WORK</p>
+
           <img src="/images/main_s3_img2.png" alt="" />
           <div className="text_box">
             <p className="korean">브랜드 디자인</p>
@@ -69,6 +72,7 @@ const MainS3 = () => {
           </div>
         </div>
         <div className="article">
+          <p>MEDIA WORK</p>
           <img src="/images/main_s3_img3.png" alt="" />
           <div className="text_box">
             <p className="korean">기업홍보영상</p>
