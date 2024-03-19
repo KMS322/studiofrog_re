@@ -12,8 +12,10 @@ const Header = ({ page }) => {
         alt=""
         onClick={() => {
           navigate("/");
+          setOpenNav(false);
         }}
       />
+      <p></p>
       <p
         id="pc"
         onClick={() => {
@@ -32,14 +34,6 @@ const Header = ({ page }) => {
       >
         PORTFOLIO
       </p>
-      <a
-        id="pc"
-        href="HTTPS://AUTORO.KR"
-        target="_self"
-        rel="noopener noreferrer"
-      >
-        <p>AUTORO</p>
-      </a>
       <p
         id="pc"
         onClick={() => {
@@ -75,9 +69,6 @@ const Header = ({ page }) => {
           >
             PORTFOLIO
           </p>
-          <a href="HTTPS://AUTORO.KR" target="_self" rel="noopener noreferrer">
-            <p>AUTORO</p>
-          </a>
           <p
             onClick={() => {
               navigate("/contact");

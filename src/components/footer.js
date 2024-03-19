@@ -63,13 +63,6 @@ const Footer = () => {
             >
               PORTFOLIO
             </p>
-            <a
-              href="HTTPS://AUTORO.KR"
-              target="_self"
-              rel="noopener noreferrer"
-            >
-              <p>AUTORO</p>
-            </a>
             <p
               onClick={() => {
                 navigate("/contact");

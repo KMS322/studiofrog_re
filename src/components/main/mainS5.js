@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 const MainS5 = () => {
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+  const handleVideoEnd = () => {
+    videoRef.current.play();
+  };
   return (
     <div className="main_s5">
-      <img src="/videos/main_s5.gif" alt="" />
+      <video
+        ref={videoRef}
+        width="100%"
+        height="100%"
+        autoPlay
+        onEnded={handleVideoEnd}
+      >
+        <source src="/videos/main_s5_bg.mp4" type="video/mp4" />
+      </video>
       <div className="article_container">
         <div className="text_box">
           <p>

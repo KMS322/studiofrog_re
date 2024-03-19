@@ -10,9 +10,9 @@ import MainS7 from "./mainS7";
 const Main = () => {
   return (
     <>
-      {/* <MainS1 />
+      <MainS1 />
       <MainS2 />
-      <MainS3 /> */}
+      <MainS3 />
       <MainS4 />
       <MainS5 />
       <MainS6 />

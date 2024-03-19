@@ -9,6 +9,8 @@ ul li {
   list-style: none;
 }
 body {
+  width: 100vw;
+  overflow-x: hidden;
   margin: 0 auto;
 }
 a {

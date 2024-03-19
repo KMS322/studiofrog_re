@@ -1,14 +1,32 @@
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 const AboutS3 = () => {
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+  const handleVideoEnd = () => {
+    videoRef.current.play();
+  };
   return (
     <div className="about_s3">
-      <img src="/images/about_s3_bg.jpg" alt="" />
+      <video
+        ref={videoRef}
+        width="100%"
+        height="100%"
+        autoPlay
+        onEnded={handleVideoEnd}
+        id="pc"
+      >
+        <source src="/videos/about_s3_bg.mp4" type="video/mp4" />
+      </video>
       <p>안녕하세요!</p>
-      <p>
+      <p id="pc">
         많은 영상들이 만들어지고 필요해지는 지금,
         <br />
         진심을 담아 상담하고 만족할 수 있도록 스튜디오프로그가 함께 하겠습니다.
+      </p>
+      <p id="mobile">
+        진심을 담아 상담하고 만족할 수 있도록
+        <br /> 스튜디오프로그가 함께 하겠습니다.
       </p>
       <div className="article_container">
         <div className="article">
@@ -33,7 +51,7 @@ const AboutS3 = () => {
           </p>
         </div>
         <div className="article">
-          <img src="/images/about_s3_img1.png" alt="" />
+          <img src="/images/about_s3_img3.png" alt="" />
           <p>EDIT</p>
           <p>
             가장 중요한 최종본을 위해 <br />
@@ -52,6 +70,14 @@ const AboutS3 = () => {
         <p>contact</p>
         <img src="/images/btn_right.png" alt="" />
       </div>
+      <video
+        ref={videoRef}
+        width="100%"
+        height="100%"
+        autoPlay
+        onEnded={handleVideoEnd}
+        id="mobile"
+      ></video>
     </div>
   );
 };

@@ -36,7 +36,7 @@ const Nav = () => {
     });
   };
   return (
-    <div className="nav" ref={tagRef}>
+    <div id="pc" className="nav" ref={tagRef}>
       <img
         src="/images/logo_white.png"
         alt=""

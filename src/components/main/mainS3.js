@@ -24,9 +24,21 @@ const MainS3 = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const videoRef = useRef(null);
+  const handleVideoEnd = () => {
+    videoRef.current.play();
+  };
   return (
     <div className="main_s3">
-      <img src="/videos/main_s3.gif" alt="" />
+      <video
+        ref={videoRef}
+        width="100%"
+        height="100%"
+        autoPlay
+        onEnded={handleVideoEnd}
+      >
+        <source src="/videos/main_s3_bg.mp4" type="video/mp4" />
+      </video>
       <div className="article_container" ref={tagRef}>
         <div className="article">
           <img src="/images/main_s3_img1.png" alt="" />

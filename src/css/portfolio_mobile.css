@@ -1,0 +1,81 @@
+@media screen and (max-width: 500px) {
+  /* .portfolio_s1 */
+  .portfolio_s1 {
+    height: 66.67vw;
+  }
+
+  /* portfolio_s2 */
+  .portfolio_s2 {
+    width: 100%;
+    height: auto;
+  }
+  .portfolio_s2 > p {
+    width: 80%;
+    font-size: 3.5vw;
+  }
+  .portfolio_s2 .text_box {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .portfolio_s2 .text_box > p {
+    font-size: 6vw;
+  }
+  .portfolio_s2 .text_box .change_box {
+    width: 100%;
+    height: 20vw;
+    border-width: 2vw;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
+  }
+  .portfolio_s2 .text_box .change_box p {
+    font-size: 11vw;
+  }
+  .portfolio_s2 > p:nth-child(3) {
+    font-size: 3.5vw;
+  }
+  .portfolio_s2 .hash_box {
+    width: 80%;
+    height: auto;
+    flex-wrap: wrap;
+    margin-top: 5vw;
+  }
+  .portfolio_s2 .hash_box p {
+    width: 33.33%;
+    height: 7vw;
+    font-size: 3vw;
+  }
+  .portfolio_s2 .article_container {
+    width: 100%;
+    margin-top: 10vw;
+  }
+  .portfolio_s2 .article_container .video_box {
+    width: 100vw;
+    height: auto;
+  }
+  .portfolio_s2 .article_container .video_box div:first-child {
+    height: 56.25vw;
+  }
+  .portfolio_s2 .article_container .video_box p {
+    height: auto;
+    padding: 0 3vw;
+  }
+  .portfolio_s2 .article_container .video_box p:nth-child(2) {
+    font-size: 4vw;
+    margin-top: 4vw;
+  }
+  .portfolio_s2 .article_container .video_box p:nth-child(3) {
+    font-size: 3.5vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+  }
+  .portfolio_s2 > p:last-child {
+    width: 25%;
+    font-size: 3.5vw;
+  }
+
+  /* .portfolio_s3 */
+  .portfolio_s3 {
+    height: 66.67vw;
+  }
+}

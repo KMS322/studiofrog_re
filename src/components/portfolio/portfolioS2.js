@@ -29,7 +29,7 @@ const PortfolioS2 = () => {
       let triggerPosition;
 
       if (windowWidth <= 550) {
-        triggerPosition = (40 * windowWidth) / 100;
+        triggerPosition = (0 * windowWidth) / 100;
       } else {
         triggerPosition = (30 * windowWidth) / 100;
       }

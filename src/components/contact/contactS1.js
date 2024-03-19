@@ -107,105 +107,110 @@ const ContactS1 = () => {
   return (
     <>
       <div className="contact_s1">
-        <p>CONTACT</p>
-        <div className="article_container">
-          <div className="sub_container">
-            <div className="input_box">
-              <p>
-                회사명 또는 성함 <sup>*</sup>
-              </p>
-              <input
-                type="text"
-                name="companyName"
-                value={companyName}
-                onChange={(e) => {
-                  handleInput(e, "companyName");
-                }}
-              />
+        <img id="pc" src="/images/contact_s1_bg.jpg" alt="" />
+        <img id="mobile" src="/images/contact_s1_bg_mobile.jpg" alt="" />
+        <div className="contact_container">
+          <p>CONTACT</p>
+          <div className="article_container">
+            <div className="sub_container">
+              <div className="input_box">
+                <p>
+                  회사명 또는 성함 <sup>*</sup>
+                </p>
+                <input
+                  type="text"
+                  name="companyName"
+                  value={companyName}
+                  onChange={(e) => {
+                    handleInput(e, "companyName");
+                  }}
+                />
+              </div>
+              <div className="input_box">
+                <p>
+                  전화번호 <sup>*</sup>
+                </p>
+                <input
+                  type="text"
+                  name="tel"
+                  value={tel}
+                  onChange={(e) => {
+                    handleInput(e, "tel");
+                  }}
+                />
+              </div>
+              <div className="input_box">
+                <p>
+                  이메일 <sup>*</sup>
+                </p>
+                <input
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={(e) => {
+                    handleInput(e, "email");
+                  }}
+                />
+              </div>
+              <div className="input_box">
+                <p>
+                  일정 <sup>*</sup>
+                </p>
+                <input
+                  type="text"
+                  name="period"
+                  value={period}
+                  onChange={(e) => {
+                    handleInput(e, "period");
+                  }}
+                />
+              </div>
             </div>
-            <div className="input_box">
-              <p>
-                전화번호 <sup>*</sup>
-              </p>
-              <input
-                type="text"
-                name="tel"
-                value={tel}
-                onChange={(e) => {
-                  handleInput(e, "tel");
-                }}
-              />
-            </div>
-            <div className="input_box">
-              <p>
-                이메일 <sup>*</sup>
-              </p>
-              <input
-                type="text"
-                name="email"
-                value={email}
-                onChange={(e) => {
-                  handleInput(e, "email");
-                }}
-              />
-            </div>
-            <div className="input_box">
-              <p>
-                일정 <sup>*</sup>
-              </p>
-              <input
-                type="text"
-                name="period"
-                value={period}
-                onChange={(e) => {
-                  handleInput(e, "period");
-                }}
-              />
+            <div className="sub_container">
+              <div className="file_box">
+                <p>레퍼런스</p>
+                <label htmlFor="file">
+                  <div className="upload_btn">
+                    <img src="/images/clip.png" alt="" />
+                    <p>
+                      &nbsp;
+                      {selectedFileName || "파일첨부, 링크첨부 (최대20MB)"}
+                    </p>
+                  </div>
+                </label>
+                <input id="file" type="file" onChange={handleFileChange} />
+              </div>
+              <div className="textarea_box">
+                <p>
+                  상담내용 <sup>*</sup>
+                </p>
+                <textarea
+                  type="text"
+                  name="content"
+                  value={content}
+                  onChange={(e) => {
+                    handleInput(e, "content");
+                  }}
+                  placeholder="상담내용을 입력해주세요."
+                />
+              </div>
             </div>
           </div>
-          <div className="sub_container">
-            <div className="file_box">
-              <p>레퍼런스</p>
-              <label htmlFor="file">
-                <div className="upload_btn">
-                  <img src="/images/clip.png" alt="" />
-                  <p>
-                    &nbsp;{selectedFileName || "파일첨부, 링크첨부 (최대20MB)"}
-                  </p>
-                </div>
-              </label>
-              <input id="file" type="file" onChange={handleFileChange} />
-            </div>
-            <div className="textarea_box">
-              <p>
-                상담내용 <sup>*</sup>
-              </p>
-              <textarea
-                type="text"
-                name="content"
-                value={content}
-                onChange={(e) => {
-                  handleInput(e, "content");
-                }}
-                placeholder="상담내용을 입력해주세요."
-              />
-            </div>
-          </div>
-        </div>
-        <div className="check_box">
-          <img
-            src={
-              check ? "/images/checked_btn.png" : "/images/unChecked_btn.png"
-            }
-            alt=""
-            onClick={() => {
-              setCheck(!check);
-            }}
-          />
+          <div className="check_box">
+            <img
+              src={
+                check ? "/images/btn_checked.png" : "/images/btn_unChecked.png"
+              }
+              alt=""
+              onClick={() => {
+                setCheck(!check);
+              }}
+            />
 
-          <p>
-            <u>개인정보수집</u>에 동의합니다.
-          </p>
+            <p>
+              <u>개인정보수집</u>에 동의합니다.
+            </p>
+          </div>
         </div>
         <div className="submit_btn" onClick={sendForm}>
           문의하기
