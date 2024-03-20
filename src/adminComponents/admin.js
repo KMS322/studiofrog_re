@@ -1,5 +1,5 @@
 import React from "react";
-import AdminMainComponent from "./adminMainComponent";
+import AdminMainComponent from "./adminVideoLists";
 import AdminSubHeader from "./adminSubHeader";
 const Admin = () => {
   return (

@@ -15,6 +15,9 @@ import Nav from "./components/nav.js";
 import Admin from "./adminComponents/admin.js";
 import AdminLogin from "./adminComponents/adminLogin.js";
 import AdminSignup from "./adminComponents/adminSignup.js";
+import AdminMain from "./adminComponents/adminMain.js";
+import AdminVideoLists from "./adminComponents/adminVideoLists.js";
+import AdminLogoLists from "./adminComponents/adminLogoLists.js";
 import Files from "./adminComponents/files.js";
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +42,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/adminSignup" element={<AdminSignup />} />
-        <Route path="/adminMain" element={<Admin />} />
+        <Route path="/adminVideoLists" element={<AdminVideoLists />} />
+        <Route path="/adminLogoLists" element={<AdminLogoLists />} />
+        <Route path="/adminMain" element={<AdminMain />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/files/:id" element={<Files />} />

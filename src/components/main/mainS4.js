@@ -6,20 +6,35 @@ const MainS4 = () => {
   const portfolioLists =
     lists && lists.filter((list) => list.type === "portfolio");
   const [pos, setPos] = useState("0vw");
+  const [posMobile, setPosMobile] = useState("0vw");
   const [arrLength, setArrLength] = useState(0);
   const videoContainerRef = useRef(null);
+  const videoContainerMobileRef = useRef(null);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     let numberPart = parseFloat(pos);
-  //     if (arrLength > 2 && parseFloat(pos) >= (arrLength - 2) * -35.58) {
-  //       const newPost = `${numberPart - 35.58}vw`;
-  //       setPos(newPost);
-  //     }
-  //   }, 5000);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let numberPart = parseFloat(pos);
+      if (arrLength > 2 && parseFloat(pos) >= (arrLength - 2) * -35.58) {
+        const newPost = `${numberPart - 35.58}vw`;
+        setPos(newPost);
+      }
+    }, 5000);
 
-  //   return () => clearInterval(interval);
-  // }, [pos, arrLength]);
+    return () => clearInterval(interval);
+  }, [pos, arrLength]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let numberPart = parseFloat(posMobile);
+      if (arrLength > 2 && parseFloat(posMobile) >= (arrLength - 2) * -80) {
+        const newPost = `${numberPart - 80}vw`;
+        setPosMobile(newPost);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [posMobile, arrLength]);
 
   const newArr = portfolioLists && portfolioLists.slice(0, 5);
   useEffect(() => {
@@ -41,6 +56,7 @@ const MainS4 = () => {
       setPos(nextPost);
     }
   };
+
   return (
     <div className="main_s4">
       <img id="pc" src="/images/main_s4_bg.jpg" alt="" />
@@ -58,6 +74,31 @@ const MainS4 = () => {
             className="video_scroll"
             ref={videoContainerRef}
             style={{ left: pos }}
+            id="pc"
+            onMouseEnter={() => setHoveredIndex(null)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {newArr &&
+              newArr.map((list, index) => {
+                return (
+                  <div className="hover_box" key={index}>
+                    <img
+                      src={`https://img.youtube.com/vi/${list.file_id}/mqdefault.jpg`}
+                      alt=""
+                      onMouseEnter={() => setHoveredIndex(index)}
+                    />
+                    {hoveredIndex === index && (
+                      <div className="hover">{list.file_title}</div>
+                    )}
+                  </div>
+                );
+              })}
+          </div>
+          <div
+            className="video_scroll"
+            ref={videoContainerMobileRef}
+            style={{ left: posMobile }}
+            id="mobile"
           >
             {newArr &&
               newArr.map((list, index) => {

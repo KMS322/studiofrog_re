@@ -118,11 +118,13 @@
     height: 60vw;
     margin-left: 5vw;
   }
-
   .main_s4 .article_container .video_box_container .video_scroll > img {
     width: 70vw;
     height: 39.375vw;
     margin-right: 10vw;
+  }
+  .main_s4 .article_container .video_box_container #mobile {
+    display: flex;
   }
   .main_s4 .article_container .text_box {
     margin: 0 auto;
@@ -193,6 +195,7 @@
   }
   .main_s6 > img {
     height: 101%;
+    z-index: -1;
   }
   .main_s6 p:nth-child(2) {
     font-size: 7vw;
@@ -206,7 +209,6 @@
     line-height: 10vw;
     color: white;
     margin-top: 13.33vw;
-    opacity: 0;
   }
   .main_s6 .logo_container {
     width: 80.56%;

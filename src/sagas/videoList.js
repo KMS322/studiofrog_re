@@ -25,6 +25,7 @@ function loadListsAPI() {
 function* loadLists() {
   try {
     const result = yield call(loadListsAPI);
+    console.log("result : ", result);
     yield put({
       type: LOAD_LISTS_SUCCESS,
       data: result.data,

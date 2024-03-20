@@ -1,12 +1,20 @@
 import "../css/adminSubHeader.css";
-const AdminSubHeader = () => {
+import { useNavigate } from "react-router-dom";
+const AdminSubHeader = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <div className="adminSubHeader">
       <div className="box">
         <img src="/images/subHeader_img.png" alt="" />
-        <p>페이지 관리자</p>
+        <p
+          onClick={() => {
+            navigate("/adminMain");
+          }}
+        >
+          페이지 관리자
+        </p>
       </div>
-      <p>영상목록</p>
+      <p>{data}</p>
     </div>
   );
 };

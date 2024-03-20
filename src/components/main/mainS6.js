@@ -1,33 +1,74 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { LOAD_LOGO_LISTS_REQUEST } from "../../reducers/logoList";
 const MainS6 = () => {
+  const dispatch = useDispatch();
+  const { logoLists } = useSelector((state) => state.logoList);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
   const tagRef1 = useRef(null);
   const tagRef2 = useRef(null);
   const tagRef3 = useRef(null);
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowWidth = window.innerWidth;
-      let triggerPosition;
+    if (!logoLists) {
+      dispatch({
+        type: LOAD_LOGO_LISTS_REQUEST,
+      });
+    }
+  }, [dispatch, logoLists]);
+  useEffect(() => {
+    if (logoLists) {
+      const timer = setTimeout(() => {
+        setCurrentIndex(
+          (prevIndex) => (prevIndex + 1) % Math.ceil(logoLists.length / 30)
+        );
+      }, 3000);
 
-      if (windowWidth <= 550) {
-        triggerPosition = (40 * windowWidth) / 100;
-      } else {
-        triggerPosition = (80 * windowWidth) / 100;
-      }
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, logoLists]);
+  useEffect(() => {
+    if (logoLists) {
+      const timer = setTimeout(() => {
+        setCurrentMobileIndex(
+          (prevIndex) => (prevIndex + 1) % Math.ceil(logoLists.length / 10)
+        );
+      }, 3000);
 
-      if (scrollPosition >= triggerPosition && tagRef1.current) {
-        tagRef1.current.classList.add("animate_s6");
-        tagRef2.current.classList.add("animate_s6");
-        tagRef3.current.classList.add("animate_s6");
-      }
-    };
+      return () => clearTimeout(timer);
+    }
+  }, [currentMobileIndex, logoLists]);
 
-    window.addEventListener("scroll", handleScroll);
+  const renderLogoList = () => {
+    if (logoLists) {
+      const startIndex = currentIndex * 30;
+      const endIndex = Math.min(startIndex + 30, logoLists.length);
+      const slicedLists = logoLists.slice(startIndex, endIndex);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      return slicedLists.map((logo, index) => (
+        <img
+          key={index}
+          src={`/logos/${logo.img_src}`}
+          alt={`Logo ${index + 1}`}
+        />
+      ));
+    }
+  };
+  const renderMobileLogoList = () => {
+    if (logoLists) {
+      const startIndex = currentMobileIndex * 10;
+      const endIndex = Math.min(startIndex + 10, logoLists.length);
+      const slicedLists = logoLists.slice(startIndex, endIndex);
+
+      return slicedLists.map((logo, index) => (
+        <img
+          key={index}
+          src={`/logos/${logo.img_src}`}
+          alt={`Logo ${index + 1}`}
+        />
+      ));
+    }
+  };
   return (
     <div className="main_s6">
       <img id="pc" src="/images/main_s6_bg.jpg" alt="" />
@@ -42,38 +83,10 @@ const MainS6 = () => {
         <br /> 업무 프로세스를 통해 정성껏 만듭니다.
       </p>
       <div id="pc" className="logo_container" ref={tagRef3}>
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
+        {renderLogoList()}
       </div>
-      <div id="mobile" className="logo_container" ref={tagRef3}>
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
-        <img src="/logos/logo1.png" alt="" />
-        <img src="/logos/logo2.png" alt="" />
-        <img src="/logos/logo3.png" alt="" />
-        <img src="/logos/logo4.png" alt="" />
-        <img src="/logos/logo5.png" alt="" />
+      <div id="mobile" className="logo_container">
+        {renderMobileLogoList()}
       </div>
       <img id="mobile" src="/images/main_s6_bg_mobile.jpg" alt="" />
     </div>
