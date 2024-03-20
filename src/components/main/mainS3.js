@@ -36,8 +36,19 @@ const MainS3 = () => {
         height="100%"
         autoPlay
         onEnded={handleVideoEnd}
+        id="pc"
       >
         <source src="/videos/main_s3_bg.mp4" type="video/mp4" />
+      </video>
+      <video
+        ref={videoRef}
+        width="100%"
+        height="100%"
+        autoPlay
+        onEnded={handleVideoEnd}
+        id="mobile"
+      >
+        <source src="/videos/main_s3_bg_mobile.mp4" type="video/mp4" />
       </video>
       <div className="article_container" ref={tagRef}>
         <div className="article">
