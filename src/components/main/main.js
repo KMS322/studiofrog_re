@@ -16,7 +16,7 @@ const Main = () => {
       <MainS4 />
       <MainS5 />
       <MainS6 />
-      {/* <MainS7 /> */}
+      <MainS7 />
     </>
   );
 };
