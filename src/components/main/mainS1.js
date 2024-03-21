@@ -13,6 +13,7 @@ const MainS1 = () => {
             rel: 0,
             modestbranding: 1,
             controls: 0,
+            mute: 1,
           },
         }}
         onEnd={(e) => {

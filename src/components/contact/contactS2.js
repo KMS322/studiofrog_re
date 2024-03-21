@@ -1,28 +1,32 @@
 import React, { useRef } from "react";
 const ContactS2 = () => {
-  const videoRef = useRef(null);
-  const handleVideoEnd = () => {
-    videoRef.current.play();
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const handleVideoEnd1 = () => {
+    videoRef1.current.play();
+  };
+  const handleVideoEnd2 = () => {
+    videoRef2.current.play();
   };
   return (
     <>
       <div className="contact_s2">
         <video
-          ref={videoRef}
+          ref={videoRef1}
           width="100%"
           height="100%"
           autoPlay
-          onEnded={handleVideoEnd}
+          onEnded={handleVideoEnd1}
           id="pc"
         >
           <source src="/videos/contact_s2_bg.mp4" type="video/mp4" />
         </video>
         <video
-          ref={videoRef}
+          ref={videoRef2}
           width="100%"
           height="100%"
           autoPlay
-          onEnded={handleVideoEnd}
+          onEnded={handleVideoEnd2}
           id="mobile"
         >
           <source src="/videos/contact_s2_bg_mobile.mp4" type="video/mp4" />

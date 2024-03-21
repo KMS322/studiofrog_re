@@ -10,16 +10,16 @@ const PortfolioS2 = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const portfolioLists =
     lists && lists.filter((list) => list.type === "portfolio");
-  const chunkSize = 9; // 각 하위 배열의 크기
+  const chunkSize = 9;
 
   const divided9Lists =
     portfolioLists &&
     portfolioLists.reduce((acc, curr, index) => {
-      const chunkIndex = Math.floor(index / chunkSize); // 현재 요소의 인덱스가 몇 번째 하위 배열에 속하는지 계산
+      const chunkIndex = Math.floor(index / chunkSize);
       if (!acc[chunkIndex]) {
-        acc[chunkIndex] = []; // 현재 하위 배열이 없으면 새로운 하위 배열 생성
+        acc[chunkIndex] = [];
       }
-      acc[chunkIndex].push(curr); // 현재 요소를 현재 하위 배열에 추가
+      acc[chunkIndex].push(curr);
       return acc;
     }, []);
   useEffect(() => {
@@ -79,7 +79,7 @@ const PortfolioS2 = () => {
                     videoId={list.file_id}
                     opts={{
                       playerVars: {
-                        autoplay: 1,
+                        autoplay: 0,
                         rel: 0,
                         modestbranding: 1,
                         controls: 0,

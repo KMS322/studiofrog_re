@@ -46,7 +46,7 @@ router.post("/addLogos", async (req, res, next) => {
         );
       }
       const addedLogo = await LogoList.create({
-        img_src: `${logo.img_src}.png`,
+        img_src: `${logo.img_src}.jpg`,
         order: maxOrder + 1,
       });
     }

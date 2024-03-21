@@ -5,6 +5,11 @@
   }
 
   /* .main_s2 */
+  .main_s2 .source {
+    font-size: 2.78vw;
+    left: 0;
+  }
+
   .main_s2 .text_box {
     width: 80%;
   }
@@ -19,6 +24,10 @@
     height: auto;
     background-color: black;
     justify-content: center;
+  }
+  .main_s3 .source {
+    font-size: 2.78vw;
+    left: 0;
   }
   .main_s3 .article_container {
     width: 90%;

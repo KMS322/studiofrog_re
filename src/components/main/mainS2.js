@@ -41,8 +41,15 @@ const MainS2 = () => {
         autoPlay
         onEnded={handleVideoEnd}
       >
-        <source src="/videos/main_s2_bg.mp4" type="video/mp4" />
+        {/* <source src="/videos/main_s2_bg.mp4" type="video/mp4" /> */}
+        <source
+          src="https://static.videezy.com/system/resources/previews/000/042/349/original/4K-7.mp4"
+          type="video/mp4"
+        />
       </video>
+      <a className="source" href="http://www.videezy.com">
+        Stock video by Videezy.com
+      </a>
       <div className="text_box" ref={tagRef}>
         <img src="/images/logo_white.png" alt="" />
         <p id="pc">

@@ -1,21 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 const AboutS3 = () => {
   const navigate = useNavigate();
-  const videoRef = useRef(null);
-  const handleVideoEnd = () => {
-    videoRef.current.play();
-  };
+
   return (
     <div className="about_s3">
-      <video
-        ref={videoRef}
-        width="100%"
-        height="100%"
-        autoPlay
-        onEnded={handleVideoEnd}
-        id="pc"
-      >
+      <video width="100%" height="100%" autoPlay id="pc" loop>
         <source src="/videos/about_s3_bg.mp4" type="video/mp4" />
       </video>
       <p>안녕하세요!</p>
@@ -30,7 +20,7 @@ const AboutS3 = () => {
       </p>
       <div className="article_container">
         <div className="article">
-          <img src="/images/about_s3_img1.png" alt="" />
+          <img src="/images/about_s3_img1.jpg" alt="" />
           <p>PLAN</p>
           <p>
             클라이언트가 원하는
@@ -42,7 +32,7 @@ const AboutS3 = () => {
           </p>
         </div>
         <div className="article">
-          <img src="/images/about_s3_img2.png" alt="" />
+          <img src="/images/about_s3_img2.jpg" alt="" />
           <p>FLIM</p>
           <p>
             최고의 품질로 촬영하기 <br />
@@ -51,7 +41,7 @@ const AboutS3 = () => {
           </p>
         </div>
         <div className="article">
-          <img src="/images/about_s3_img3.png" alt="" />
+          <img src="/images/about_s3_img3.jpg" alt="" />
           <p>EDIT</p>
           <p>
             가장 중요한 최종본을 위해 <br />
@@ -70,14 +60,7 @@ const AboutS3 = () => {
         <p>contact</p>
         <img src="/images/btn_right.png" alt="" />
       </div>
-      <video
-        ref={videoRef}
-        width="100%"
-        height="100%"
-        autoPlay
-        onEnded={handleVideoEnd}
-        id="mobile"
-      ></video>
+      <video width="100%" height="100%" autoPlay id="mobile" loop></video>
     </div>
   );
 };
