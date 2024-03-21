@@ -13,10 +13,12 @@ const MainS2 = () => {
         triggerPosition = (40 * windowWidth) / 100;
       }
       if (scrollPosition >= triggerPosition && tagRef.current) {
-        tagRef && tagRef.current.classList.add("animate_s2_1");
-        setTimeout(() => {
-          tagRef && tagRef.current.classList.add("animate_s2_2");
-        }, 2000);
+        if (tagRef.current) {
+          tagRef.current.classList.add("animate_s2_1");
+          setTimeout(() => {
+            tagRef.current.classList.add("animate_s2_2");
+          }, 2000);
+        }
       }
     };
 
