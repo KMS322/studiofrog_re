@@ -24,23 +24,24 @@ const MainS3 = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
-  const handleVideoEnd1 = () => {
-    videoRef1.current.play();
-  };
-  const handleVideoEnd2 = () => {
-    videoRef2.current.play();
-  };
+  // const videoRef1 = useRef(null);
+  // const videoRef2 = useRef(null);
+  // const handleVideoEnd1 = () => {
+  //   videoRef1.current.play();
+  // };
+  // const handleVideoEnd2 = () => {
+  //   videoRef2.current.play();
+  // };
   return (
     <div className="main_s3">
       <video
-        ref={videoRef1}
+        // ref={videoRef1}
         width="100%"
         height="100%"
         autoPlay
-        onEnded={handleVideoEnd1}
+        // onEnded={handleVideoEnd1}
         id="pc"
+        loop
       >
         <source
           src="https://static.videezy.com/system/resources/previews/000/043/157/original/Abstract_black_liquid_wave_background._Luxurious_design_of_elegant_curves_black_material._Animation_4K_2.mp4"
@@ -51,12 +52,13 @@ const MainS3 = () => {
         Stock video by Videezy.com
       </a>
       <video
-        ref={videoRef2}
+        // ref={videoRef2}
         width="100%"
         height="100%"
         autoPlay
-        onEnded={handleVideoEnd2}
+        // onEnded={handleVideoEnd2}
         id="mobile"
+        loop
       >
         <source src="/videos/main_s3_bg_mobile.mp4" type="video/mp4" />
       </video>

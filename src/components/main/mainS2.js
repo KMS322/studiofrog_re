@@ -26,31 +26,31 @@ const MainS2 = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const videoRef = useRef(null);
-  const handleVideoEnd = () => {
-    videoRef.current.play();
-  };
-  useEffect(() => {
-    const video = videoRef.current;
-    console.log("AA");
-    video.oncanplay = () => {
-      video.play();
-      console.log("BB");
-    };
+  // const videoRef = useRef(null);
+  // const handleVideoEnd = () => {
+  //   videoRef.current.play();
+  // };
+  // useEffect(() => {
+  //   const video = videoRef.current;
+  //   console.log("AA");
+  //   video.oncanplay = () => {
+  //     video.play();
+  //     console.log("BB");
+  //   };
 
-    return () => {
-      console.log("CC");
-      video.oncanplay = null;
-    };
-  }, []);
+  //   return () => {
+  //     console.log("CC");
+  //     video.oncanplay = null;
+  //   };
+  // }, []);
   return (
     <div className="main_s2">
       <video
-        ref={videoRef}
+        // ref={videoRef}
         width="100%"
         height="100%"
         autoPlay
-        onEnded={handleVideoEnd}
+        // onEnded={handleVideoEnd}
       >
         <source
           src="https://static.videezy.com/system/resources/previews/000/042/349/original/4K-7.mp4"
