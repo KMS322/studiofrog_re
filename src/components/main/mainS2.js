@@ -12,11 +12,10 @@ const MainS2 = () => {
       } else {
         triggerPosition = (40 * windowWidth) / 100;
       }
-
       if (scrollPosition >= triggerPosition && tagRef.current) {
-        tagRef.current.classList.add("animate_s2_1");
+        tagRef && tagRef.current.classList.add("animate_s2_1");
         setTimeout(() => {
-          tagRef.current.classList.add("animate_s2_2");
+          tagRef && tagRef.current.classList.add("animate_s2_2");
         }, 2000);
       }
     };
@@ -31,9 +30,19 @@ const MainS2 = () => {
   const handleVideoEnd = () => {
     videoRef.current.play();
   };
+  useEffect(() => {
+    const video = videoRef.current;
+
+    video.oncanplay = () => {
+      video.play();
+    };
+
+    return () => {
+      video.oncanplay = null;
+    };
+  }, []);
   return (
     <div className="main_s2">
-      {/* <img src="/videos/main_s2.gif" alt="" /> */}
       <video
         ref={videoRef}
         width="100%"
@@ -41,7 +50,6 @@ const MainS2 = () => {
         autoPlay
         onEnded={handleVideoEnd}
       >
-        {/* <source src="/videos/main_s2_bg.mp4" type="video/mp4" /> */}
         <source
           src="https://static.videezy.com/system/resources/previews/000/042/349/original/4K-7.mp4"
           type="video/mp4"

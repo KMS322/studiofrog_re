@@ -14,7 +14,7 @@ const MainS3 = () => {
       }
 
       if (scrollPosition >= triggerPosition && tagRef.current) {
-        tagRef.current.classList.add("animate_s3");
+        tagRef && tagRef.current.classList.add("animate_s3");
       }
     };
 

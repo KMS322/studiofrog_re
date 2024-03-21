@@ -103,14 +103,12 @@ const MainS4 = () => {
             {newArr &&
               newArr.map((list, index) => {
                 return (
-                  <>
-                    <img
-                      // src={`/test/image${index + 1}.jpg`}
-                      src={`https://img.youtube.com/vi/${list.file_id}/mqdefault.jpg`}
-                      alt=""
-                    />
-                    {/* <div className="overlay"></div> */}
-                  </>
+                  <img
+                    // src={`/test/image${index + 1}.jpg`}
+                    src={`https://img.youtube.com/vi/${list.file_id}/mqdefault.jpg`}
+                    alt=""
+                    key={index}
+                  />
                 );
               })}
           </div>

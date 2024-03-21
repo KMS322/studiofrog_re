@@ -16,9 +16,9 @@ const Nav = () => {
       }
 
       if (scrollPosition >= triggerPosition && tagRef.current) {
-        tagRef.current.classList.add("display");
+        tagRef && tagRef.current.classList.add("display");
       } else {
-        tagRef.current.classList.remove("display");
+        tagRef && tagRef.current.classList.remove("display");
       }
     };
 
