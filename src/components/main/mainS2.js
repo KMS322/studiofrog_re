@@ -32,12 +32,14 @@ const MainS2 = () => {
   };
   useEffect(() => {
     const video = videoRef.current;
-
+    console.log("AA");
     video.oncanplay = () => {
       video.play();
+      console.log("BB");
     };
 
     return () => {
+      console.log("CC");
       video.oncanplay = null;
     };
   }, []);
