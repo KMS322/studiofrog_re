@@ -52,7 +52,9 @@ const MainS2 = () => {
         width="100%"
         height="100%"
         autoPlay
+        muted
         loop
+        playsInline
         // onEnded={handleVideoEnd}
       >
         <source

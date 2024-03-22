@@ -40,10 +40,12 @@ const MainS3 = () => {
         // ref={videoRef1}
         width="100%"
         height="100%"
-        autoPlay
         // onEnded={handleVideoEnd1}
         id="pc"
+        autoPlay
+        muted
         loop
+        playsInline
       >
         <source
           src="https://static.videezy.com/system/resources/previews/000/043/157/original/Abstract_black_liquid_wave_background._Luxurious_design_of_elegant_curves_black_material._Animation_4K_2.mp4"
