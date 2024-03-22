@@ -2,28 +2,34 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 const MainS5 = () => {
   const navigate = useNavigate();
-  const videoRef = useRef(null);
-  const handleVideoEnd = () => {
-    videoRef.current.play();
-  };
+  // const videoRef = useRef(null);
+  // const handleVideoEnd = () => {
+  //   videoRef.current.play();
+  // };
   return (
     <div className="main_s5">
       <video
-        ref={videoRef}
+        // ref={videoRef}
         width="100%"
         height="100%"
         autoPlay
-        onEnded={handleVideoEnd}
+        muted
+        loop
+        playsInline
+        // onEnded={handleVideoEnd}
         id="pc"
       >
         <source src="/videos/main_s5_bg.mp4" type="video/mp4" />
       </video>
       <video
-        ref={videoRef}
+        // ref={videoRef}
         width="100%"
         height="100%"
         autoPlay
-        onEnded={handleVideoEnd}
+        muted
+        loop
+        playsInline
+        // onEnded={handleVideoEnd}
         id="mobile"
       >
         <source src="/videos/main_s5_bg_mobile.mp4" type="video/mp4" />

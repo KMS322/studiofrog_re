@@ -5,7 +5,7 @@ const AboutS3 = () => {
 
   return (
     <div className="about_s3">
-      <video width="100%" height="100%" autoPlay id="pc" loop>
+      <video width="100%" height="100%" id="pc" autoPlay loop muted playsInline>
         <source src="/videos/about_s3_bg.mp4" type="video/mp4" />
       </video>
       <p>안녕하세요!</p>
@@ -60,7 +60,15 @@ const AboutS3 = () => {
         <p>contact</p>
         <img src="/images/btn_right.png" alt="" />
       </div>
-      <video width="100%" height="100%" autoPlay id="mobile" loop></video>
+      <video
+        width="100%"
+        height="100%"
+        id="mobile"
+        loop
+        autoPlay
+        muted
+        playsInline
+      ></video>
     </div>
   );
 };
