@@ -5,6 +5,9 @@
   }
 
   /* .main_s2 */
+  .main_s2 {
+    width: 100vw;
+  }
   .main_s2 .source {
     font-size: 2.78vw;
     left: 0;

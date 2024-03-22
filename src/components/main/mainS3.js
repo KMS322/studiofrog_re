@@ -63,6 +63,8 @@ const MainS3 = () => {
         // onEnded={handleVideoEnd2}
         id="mobile"
         loop
+        muted
+        playsInline
       >
         <source src="/videos/main_s3_bg_mobile.mp4" type="video/mp4" />
       </video>
