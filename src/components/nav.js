@@ -15,10 +15,12 @@ const Nav = () => {
         triggerPosition = (30 * windowWidth) / 100;
       }
 
-      if (scrollPosition >= triggerPosition && tagRef.current) {
-        tagRef && tagRef.current.classList.add("display");
-      } else {
-        tagRef && tagRef.current.classList.remove("display");
+      if (tagRef.current) {
+        if (scrollPosition >= triggerPosition && tagRef.current) {
+          tagRef.current.classList.add("display");
+        } else {
+          tagRef.current.classList.remove("display");
+        }
       }
     };
 
