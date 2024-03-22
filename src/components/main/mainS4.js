@@ -33,7 +33,7 @@ const MainS4 = () => {
         const newPost = `${numberPart - 80}vw`;
         setPosMobile(newPost);
       } else {
-        setPos("0vw");
+        setPosMobile("0vw");
       }
     }, 5000);
 
