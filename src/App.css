@@ -13,6 +13,9 @@ body {
   overflow-x: hidden;
   margin: 0 auto;
 }
+#root {
+  overflow-x: hidden;
+}
 a {
   text-decoration: none;
 }
