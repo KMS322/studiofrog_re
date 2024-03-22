@@ -218,11 +218,12 @@
     font-size: 5vw;
     font-weight: 200;
     line-height: 10vw;
+    letter-spacing: -0.06vw;
     color: white;
     margin-top: 13.33vw;
   }
   .main_s6 .logo_container {
-    width: 80.56%;
+    width: 80.11vw;
     height: 106.67vw;
     margin-top: 13.33vw;
     justify-content: space-between;
@@ -232,8 +233,8 @@
     display: flex;
   }
   .main_s6 .logo_container img {
-    width: 41.52%;
-    height: fit-content;
+    width: 33.26vw;
+    height: 16.63vw;
     margin: 0;
   }
 
