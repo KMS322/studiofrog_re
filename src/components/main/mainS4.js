@@ -18,6 +18,8 @@ const MainS4 = () => {
       if (arrLength > 2 && parseFloat(pos) >= (arrLength - 2) * -35.58) {
         const newPost = `${numberPart - 35.58}vw`;
         setPos(newPost);
+      } else {
+        setPos("0vw");
       }
     }, 5000);
 
@@ -30,6 +32,8 @@ const MainS4 = () => {
       if (arrLength > 2 && parseFloat(posMobile) >= (arrLength - 2) * -80) {
         const newPost = `${numberPart - 80}vw`;
         setPosMobile(newPost);
+      } else {
+        setPos("0vw");
       }
     }, 5000);
 
