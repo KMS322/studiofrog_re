@@ -4,6 +4,8 @@ import { LOAD_LOGO_LISTS_REQUEST } from "../../reducers/logoList";
 const MainS6 = () => {
   const dispatch = useDispatch();
   const { logoLists } = useSelector((state) => state.logoList);
+  const orderedLists =
+    logoLists && logoLists.slice().sort((a, b) => a.order - b.order);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
   const tagRef1 = useRef(null);
@@ -17,7 +19,7 @@ const MainS6 = () => {
     }
   }, [dispatch, logoLists]);
   useEffect(() => {
-    if (logoLists) {
+    if (orderedLists) {
       const timer = setTimeout(() => {
         setCurrentIndex(
           (prevIndex) => (prevIndex + 1) % Math.ceil(logoLists.length / 30)
@@ -26,24 +28,24 @@ const MainS6 = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, logoLists]);
+  }, [currentIndex, orderedLists]);
   useEffect(() => {
-    if (logoLists) {
+    if (orderedLists) {
       const timer = setTimeout(() => {
         setCurrentMobileIndex(
-          (prevIndex) => (prevIndex + 1) % Math.ceil(logoLists.length / 10)
+          (prevIndex) => (prevIndex + 1) % Math.ceil(orderedLists.length / 10)
         );
       }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [currentMobileIndex, logoLists]);
+  }, [currentMobileIndex, orderedLists]);
 
   const renderLogoList = () => {
-    if (logoLists) {
+    if (orderedLists) {
       const startIndex = currentIndex * 30;
-      const endIndex = Math.min(startIndex + 30, logoLists.length);
-      const slicedLists = logoLists.slice(startIndex, endIndex);
+      const endIndex = Math.min(startIndex + 30, orderedLists.length);
+      const slicedLists = orderedLists.slice(startIndex, endIndex);
 
       return slicedLists.map((logo, index) => (
         <img
@@ -55,10 +57,10 @@ const MainS6 = () => {
     }
   };
   const renderMobileLogoList = () => {
-    if (logoLists) {
+    if (orderedLists) {
       const startIndex = currentMobileIndex * 10;
-      const endIndex = Math.min(startIndex + 10, logoLists.length);
-      const slicedLists = logoLists.slice(startIndex, endIndex);
+      const endIndex = Math.min(startIndex + 10, orderedLists.length);
+      const slicedLists = orderedLists.slice(startIndex, endIndex);
 
       return slicedLists.map((logo, index) => (
         <img

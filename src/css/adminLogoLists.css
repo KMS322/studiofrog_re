@@ -1,0 +1,111 @@
+/* adminVideoLists */
+.adminLogoLists {
+  width: 88.85%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 10vw;
+}
+.adminLogoLists .upload_btn {
+  width: 5.47vw;
+  height: 1.67vw;
+  margin-top: 1.77vw;
+  margin-left: auto;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  cursor: pointer;
+}
+.adminLogoLists .upload_btn p {
+  font-size: 0.89vw;
+  color: white;
+}
+.adminLogoLists .table {
+  width: 100%;
+  height: auto;
+  margin-top: 0.73vw;
+}
+.adminLogoLists .table .head_row {
+  width: 100%;
+  height: 1.82vw;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #707070;
+  border-bottom: 1px solid #707070;
+}
+.adminLogoLists .table .head_row p {
+  font-size: 1.04vw;
+}
+.adminLogoLists .table .content_row {
+  width: 100%;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  background-color: #dddddd;
+  border-bottom: 1px solid gray;
+}
+.adminLogoLists .table .even_row {
+  background-color: #f7f7f7;
+}
+.adminLogoLists .table .content_row p {
+  font-size: 1vw;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  font-weight: 200;
+}
+.adminLogoLists .table .row > p:nth-child(1) {
+  margin-left: 10vw;
+  width: 3.71%;
+  text-align: center;
+  justify-self: center;
+}
+.adminLogoLists .table .row > p:nth-child(2) {
+  margin-left: 13vw;
+  width: 27%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.adminLogoLists .table .row > img:nth-child(3) {
+  margin-left: 3vw;
+  width: 5%;
+  height: fit-content;
+}
+.adminLogoLists .table .content_row .btn_box {
+  width: 20%;
+  height: 80%;
+  margin-left: 10vw;
+  display: flex;
+  justify-content: space-between;
+}
+.adminLogoLists .table .content_row .btn_box p {
+  width: 30%;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw;
+  cursor: pointer;
+}
+.adminLogoLists .table .content_row:last-child .btn_box p:first-child {
+  border: none;
+}
+.adminLogoLists .change_btn {
+  width: 5.47vw;
+  height: 1.67vw;
+  margin-top: 1.77vw;
+  margin-left: auto;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  cursor: pointer;
+}
+.adminLogoLists .change_btn p {
+  font-size: 0.8vw;
+  cursor: pointer;
+  color: white;
+}

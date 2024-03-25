@@ -3,24 +3,26 @@ import { useSelector } from "react-redux";
 import { LOAD_LOGO_LISTS_REQUEST } from "../../reducers/logoList";
 const AboutS4 = () => {
   const { logoLists } = useSelector((state) => state.logoList);
+  const orderedLists =
+    logoLists && logoLists.slice().sort((a, b) => a.order - b.order);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (logoLists) {
+    if (orderedLists) {
       const timer = setTimeout(() => {
         setCurrentIndex(
-          (prevIndex) => (prevIndex + 1) % Math.ceil(logoLists.length / 10)
+          (prevIndex) => (prevIndex + 1) % Math.ceil(orderedLists.length / 10)
         );
       }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, logoLists]);
+  }, [currentIndex, orderedLists]);
   const renderLogoList = () => {
-    if (logoLists) {
+    if (orderedLists) {
       const startIndex = currentIndex * 10;
-      const endIndex = Math.min(startIndex + 10, logoLists.length);
-      const slicedLists = logoLists.slice(startIndex, endIndex);
+      const endIndex = Math.min(startIndex + 10, orderedLists.length);
+      const slicedLists = orderedLists.slice(startIndex, endIndex);
 
       return slicedLists.map((logo, index) => (
         <img
