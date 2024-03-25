@@ -83,6 +83,7 @@ const AdminLogoLists = () => {
             <div className="head_row row">
               <p>No</p>
               <p>파일명</p>
+              <p>로고</p>
             </div>
             {orderedLists &&
               orderedLists.map((list, index) => {

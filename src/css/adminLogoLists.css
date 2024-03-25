@@ -67,6 +67,11 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.adminLogoLists .table .row > p:nth-child(3) {
+  margin-left: 3vw;
+  width: 5%;
+  text-align: center;
+}
 .adminLogoLists .table .row > img:nth-child(3) {
   margin-left: 3vw;
   width: 5%;
