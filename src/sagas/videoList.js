@@ -10,6 +10,9 @@ import {
   ADD_LISTS_REQUEST,
   ADD_LISTS_SUCCESS,
   ADD_LISTS_FAILURE,
+  CHANGE_LISTS_REQUEST,
+  CHANGE_LISTS_SUCCESS,
+  CHANGE_LISTS_FAILURE,
   CHANGE_MAIN_REQUEST,
   CHANGE_MAIN_SUCCESS,
   CHANGE_MAIN_FAILURE,
@@ -53,6 +56,26 @@ function* addLists(action) {
     console.error(err);
     yield put({
       type: ADD_LISTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+
+function changeListsAPI(data) {
+  return axios.post("/list/change", data);
+}
+
+function* changeLists(action) {
+  try {
+    const result = yield call(changeListsAPI, action.data);
+    yield put({
+      type: CHANGE_LISTS_SUCCESS,
+      data: result.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: CHANGE_LISTS_FAILURE,
       error: err.response.data,
     });
   }
@@ -126,6 +149,10 @@ function* watchaddlists() {
   yield takeLatest(ADD_LISTS_REQUEST, addLists);
 }
 
+function* watchchangelists() {
+  yield takeLatest(CHANGE_LISTS_REQUEST, changeLists);
+}
+
 function* watchChangeMain() {
   yield takeLatest(CHANGE_MAIN_REQUEST, changeMain);
 }
@@ -145,5 +172,6 @@ export default function* videoListSaga() {
     fork(watchaddlists),
     fork(watchChangeMain),
     fork(watchChangeAbout),
+    fork(watchchangelists),
   ]);
 }

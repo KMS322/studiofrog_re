@@ -1,0 +1,17 @@
+/* adminPopup */
+.adminPopup {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.adminPopup .upload_btn {
+  width: 15vw;
+  height: 3vw;
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  margin-top: 3vw;
+}

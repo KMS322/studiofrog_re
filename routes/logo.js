@@ -48,9 +48,7 @@ router.post("/add", async (req, res, next) => {
     for (const list of lists) {
       const allLogos = await LogoList.findAll();
       const maxLength = allLogos.length;
-      const sameLogo = await LogoList.findOne({
-        where: { img_src: list },
-      });
+
       await LogoList.create({
         img_src: list,
         order: maxLength + 1,

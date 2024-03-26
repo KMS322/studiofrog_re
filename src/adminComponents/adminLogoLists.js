@@ -28,6 +28,11 @@ const AdminLogoLists = () => {
     });
   }, [dispatch]);
   const [lists, setLists] = useState(orderedLists);
+  useEffect(() => {
+    if (orderedLists !== null && lists === null) {
+      setLists(orderedLists);
+    }
+  }, [orderedLists, lists]);
   const moveItem = (fromIndex, toIndex) => {
     const updatedLists = [...lists]; // 새로운 배열 생성
     const movedItem = updatedLists[fromIndex];
@@ -85,8 +90,8 @@ const AdminLogoLists = () => {
               <p>파일명</p>
               <p>로고</p>
             </div>
-            {orderedLists &&
-              orderedLists.map((list, index) => {
+            {lists &&
+              lists.map((list, index) => {
                 return (
                   <div className="content_row row" key={index}>
                     <p>{list.order}</p>
@@ -118,7 +123,7 @@ const AdminLogoLists = () => {
               })}
           </div>
           <div className="change_btn">
-            <p onClick={handleChange}>순서변경</p>
+            <p onClick={handleChange}>순서저장</p>
           </div>
           {openForm ? (
             <AdminLogoUploadForm

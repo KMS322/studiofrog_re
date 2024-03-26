@@ -9,6 +9,7 @@ import {
   CHANGE_ABOUT_REQUEST,
 } from "../reducers/videoList";
 import { DELETE_FILE_REQUEST } from "../reducers/contact";
+import { CHANGE_LISTS_REQUEST } from "../reducers/videoList";
 import UploadForm from "./adminUploadForm";
 import Loading from "./loading";
 import AdminSubHeader from "./adminSubHeader";
@@ -28,26 +29,30 @@ const AdminVideoLists = () => {
   const {
     lists,
     addListsDone,
+    changeListsDone,
     changeMainDone,
     changeAboutDone,
     addListsLoading,
     deleteListDone,
   } = useSelector((state) => state.videoList);
-  const { deleteFileDone } = useSelector((state) => state.contact);
+  // const { deleteFileDone } = useSelector((state) => state.contact);
   const mainList = lists && lists.filter((list) => list.type === "main");
   const aboutList = lists && lists.filter((list) => list.type === "about");
   const portfolioLists =
     lists && lists.filter((list) => list.type === "portfolio");
+  const orderedLists =
+    portfolioLists && portfolioLists.slice().sort((a, b) => a.order - b.order);
   useEffect(() => {
     if (deleteListDone) {
       window.location.href = "/adminVideoLists";
     }
   }, [deleteListDone]);
-  useEffect(() => {
-    if (deleteFileDone) {
-      window.location.href = "/adminVideoLists";
-    }
-  }, [deleteFileDone]);
+
+  // useEffect(() => {
+  //   if (deleteFileDone) {
+  //     window.location.href = "/adminVideoLists";
+  //   }
+  // }, [deleteFileDone]);
   useEffect(() => {
     setMainChange(
       !lists || lists.filter((list) => list.type === "main").length === 0
@@ -114,11 +119,46 @@ const AdminVideoLists = () => {
       return () => clearTimeout(timeoutId);
     }
   }, [addListsLoading]);
-  const deleteFile = () => {
+  // const deleteFile = () => {
+  //   dispatch({
+  //     type: DELETE_FILE_REQUEST,
+  //   });
+  // };
+
+  const [arrLists, setArrLists] = useState(null);
+
+  useEffect(() => {
+    if (orderedLists !== null && arrLists === null) {
+      setArrLists(orderedLists);
+    }
+  }, [orderedLists, arrLists]);
+  const moveItem = (fromIndex, toIndex) => {
+    const updatedLists = [...arrLists]; // 새로운 배열 생성
+    const movedItem = updatedLists[fromIndex];
+    updatedLists.splice(fromIndex, 1);
+    updatedLists.splice(toIndex, 0, movedItem);
+    // 순서 변경 후 order 값 업데이트
+    const updatedWithOrder = updatedLists.map((item, index) => ({
+      ...item,
+      order: index + 1,
+    }));
+    setArrLists(updatedWithOrder);
+    // 업데이트된 배열을 상태로 설정
+  };
+  const handleChange = () => {
     dispatch({
-      type: DELETE_FILE_REQUEST,
+      type: CHANGE_LISTS_REQUEST,
+      data: {
+        arrLists,
+      },
     });
   };
+  useEffect(() => {
+    if (changeListsDone) {
+      window.location.href = "/adminVideoLists";
+    }
+  }, [changeListsDone]);
+
   return (
     <>
       <AdminSubHeader data={"영상 관리"} />
@@ -211,8 +251,8 @@ const AdminVideoLists = () => {
                 )}
               </div>
             </div>
-            {portfolioLists &&
-              portfolioLists.map((list, index) => {
+            {arrLists &&
+              arrLists.map((list, index) => {
                 return (
                   <div
                     className={
@@ -222,10 +262,22 @@ const AdminVideoLists = () => {
                     }
                     key={index}
                   >
-                    <p>{index + 1}</p>
+                    <p>{list.order}</p>
                     <p>{list.file_url}</p>
                     <p>{list.file_title}</p>
                     <div className="delete_btn">
+                      {index === orderedLists.length - 1 ? (
+                        <p></p>
+                      ) : (
+                        <p onClick={() => moveItem(index, index + 1)}>
+                          아래로 ▼
+                        </p>
+                      )}
+                      {index === 0 ? (
+                        ""
+                      ) : (
+                        <p onClick={() => moveItem(index, index - 1)}>위로 ▲</p>
+                      )}
                       <p
                         onClick={() => {
                           deleteList(list.id);
@@ -237,6 +289,9 @@ const AdminVideoLists = () => {
                   </div>
                 );
               })}
+          </div>
+          <div className="change_btn">
+            <p onClick={handleChange}>순서저장</p>
           </div>
           {openForm ? (
             <UploadForm

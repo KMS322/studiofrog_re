@@ -65,14 +65,33 @@ router.post("/add", async (req, res, next) => {
       } catch (error) {
         console.error("Error: ", error);
       }
+      const portfolioLists = await VideoList.findAll({
+        where: { type: "portfolio" },
+      });
+      const maxLength = portfolioLists.length;
       await VideoList.create({
         file_id: videoId,
         file_title: videoTitle,
         file_url: req.body.urls[i],
         type: "portfolio",
+        order: maxLength + 1,
       });
     }
     res.status(200).send("ok");
+  } catch (error) {
+    console.error(error);
+    next();
+  }
+});
+
+router.post("/change", async (req, res, next) => {
+  try {
+    for (const list of req.body.arrLists) {
+      await VideoList.update(
+        { order: list.order },
+        { where: { file_url: list.file_url } }
+      );
+    }
   } catch (error) {
     console.error(error);
     next();

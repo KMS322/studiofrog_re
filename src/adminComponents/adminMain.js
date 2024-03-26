@@ -31,7 +31,13 @@ const AdminMain = () => {
         >
           로고 리스트 등록/삭제/순서 변경
         </p>
-        <p onClick={() => {}}>팝업 창 관리</p>
+        <p
+          onClick={() => {
+            navigate("/adminPopup", { state: { me } });
+          }}
+        >
+          팝업 창 관리
+        </p>
       </div>
     </>
   );

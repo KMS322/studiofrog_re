@@ -5,6 +5,9 @@ const MainS4 = () => {
   const { lists } = useSelector((state) => state.videoList);
   const portfolioLists =
     lists && lists.filter((list) => list.type === "portfolio");
+  const orderedLists =
+    portfolioLists && portfolioLists.slice().sort((a, b) => a.order - b.order);
+  console.log("orderedLists : ", orderedLists);
   const [pos, setPos] = useState("0vw");
   const [posMobile, setPosMobile] = useState("0vw");
   const [arrLength, setArrLength] = useState(0);
@@ -40,12 +43,11 @@ const MainS4 = () => {
     return () => clearInterval(interval);
   }, [posMobile, arrLength]);
 
-  const newArr = portfolioLists && portfolioLists.slice(0, 5);
   useEffect(() => {
-    if (newArr) {
-      setArrLength(newArr.length);
+    if (portfolioLists) {
+      setArrLength(portfolioLists.length);
     }
-  }, [newArr]);
+  }, [portfolioLists]);
   const handlePrev = () => {
     if (pos !== "0vw") {
       let numberPart = parseFloat(pos);
@@ -82,8 +84,8 @@ const MainS4 = () => {
             onMouseEnter={() => setHoveredIndex(null)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            {newArr &&
-              newArr.map((list, index) => {
+            {orderedLists &&
+              orderedLists.map((list, index) => {
                 return (
                   <div className="hover_box" key={index}>
                     <img
@@ -104,8 +106,8 @@ const MainS4 = () => {
             style={{ left: posMobile }}
             id="mobile"
           >
-            {newArr &&
-              newArr.map((list, index) => {
+            {orderedLists &&
+              orderedLists.map((list, index) => {
                 return (
                   <img
                     // src={`/test/image${index + 1}.jpg`}
