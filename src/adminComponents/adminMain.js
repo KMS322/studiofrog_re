@@ -7,7 +7,6 @@ const AdminMain = () => {
   const location = useLocation();
   const me = location.state && location.state.me;
 
-  console.log("me : ", me);
   useEffect(() => {
     if (!me) {
       navigate("/admin");

@@ -4,6 +4,7 @@ import userSaga from "./user";
 import videoListSaga from "./videoList";
 import contactSaga from "./contact";
 import logoListSaga from "./logoList";
+import popupSaga from "./popup";
 import { API_URL } from "../constants";
 
 axios.defaults.baseURL = API_URL;
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     fork(videoListSaga),
     fork(contactSaga),
     fork(logoListSaga),
+    fork(popupSaga),
   ]);
 }

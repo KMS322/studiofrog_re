@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SEND_EMAIL_REQUEST } from "../../reducers/contact";
-
 import Modal from "./modal";
 import axios from "axios";
 

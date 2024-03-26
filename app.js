@@ -9,6 +9,7 @@ const listRouter = require("./routes/list");
 const contactRouter = require("./routes/contact");
 const dummyRouter = require("./routes/dummy");
 const logoRouter = require("./routes/logo");
+const popupRouter = require("./routes/popup");
 const db = require("./models");
 const path = require("path");
 const passportConfig = require("./passport");
@@ -64,6 +65,7 @@ app.use("/list", listRouter);
 app.use("/contact", contactRouter);
 app.use("/dummy", dummyRouter);
 app.use("/logo", logoRouter);
+app.use("/popup", popupRouter);
 
 const port = 3060;
 app.listen(port, () => {

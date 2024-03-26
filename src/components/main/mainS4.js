@@ -7,7 +7,6 @@ const MainS4 = () => {
     lists && lists.filter((list) => list.type === "portfolio");
   const orderedLists =
     portfolioLists && portfolioLists.slice().sort((a, b) => a.order - b.order);
-  console.log("orderedLists : ", orderedLists);
   const [pos, setPos] = useState("0vw");
   const [posMobile, setPosMobile] = useState("0vw");
   const [arrLength, setArrLength] = useState(0);

@@ -34,16 +34,16 @@ const AdminLogoLists = () => {
     }
   }, [orderedLists, lists]);
   const moveItem = (fromIndex, toIndex) => {
-    const updatedLists = [...lists]; // 새로운 배열 생성
+    const updatedLists = [...lists];
     const movedItem = updatedLists[fromIndex];
     updatedLists.splice(fromIndex, 1);
     updatedLists.splice(toIndex, 0, movedItem);
-    // 순서 변경 후 order 값 업데이트
+
     const updatedWithOrder = updatedLists.map((item, index) => ({
       ...item,
       order: index + 1,
     }));
-    setLists(updatedWithOrder); // 상태 업데이트
+    setLists(updatedWithOrder);
   };
 
   const handleChange = () => {
