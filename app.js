@@ -11,7 +11,7 @@ const dummyRouter = require("./routes/dummy");
 const logoRouter = require("./routes/logo");
 const popupRouter = require("./routes/popup");
 const db = require("./models");
-const path = require("path");
+// const path = require("path");
 const passportConfig = require("./passport");
 
 dotenv.config();
@@ -36,7 +36,7 @@ app.use(
 //   "/contactFiles",
 //   express.static(path.join(__dirname, "public", "contactFiles"))
 // );
-app.use("/popups", express.static(path.join(__dirname, "public", "popups")));
+// app.use("/popups", express.static(path.join(__dirname, "public", "popups")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
