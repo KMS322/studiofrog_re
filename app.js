@@ -11,7 +11,7 @@ const dummyRouter = require("./routes/dummy");
 const logoRouter = require("./routes/logo");
 const popupRouter = require("./routes/popup");
 const db = require("./models");
-// const path = require("path");
+const path = require("path");
 const passportConfig = require("./passport");
 
 dotenv.config();
