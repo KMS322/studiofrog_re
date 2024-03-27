@@ -11,7 +11,9 @@ import EventPopup from "../components/main/eventPopup";
 import axios from "axios";
 const AdminPopup = () => {
   const dispatch = useDispatch();
-  const { popup, activePopupDone } = useSelector((state) => state.popup);
+  const { popup, activePopupDone, addPopupDone } = useSelector(
+    (state) => state.popup
+  );
   const [openPopup, setOpenPopup] = useState(false);
   const [activePopup, setActivePopup] = useState("off");
   const handleClose = () => {
@@ -39,6 +41,9 @@ const AdminPopup = () => {
             "Content-Type": "multipart/form-data",
           },
         });
+      } else {
+        alert("이미지를 선택해주세요.");
+        return;
       }
 
       dispatch({
@@ -76,6 +81,11 @@ const AdminPopup = () => {
       window.location.href = "/adminPopup";
     }
   }, [activePopupDone]);
+  useEffect(() => {
+    if (addPopupDone) {
+      window.location.href = "/adminPopup";
+    }
+  }, [addPopupDone]);
   return (
     <>
       <AdminSubHeader data={"팝업 관리"} />

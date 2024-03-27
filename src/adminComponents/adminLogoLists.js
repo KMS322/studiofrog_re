@@ -12,9 +12,13 @@ import {
 } from "../reducers/logoList";
 const AdminLogoLists = () => {
   const dispatch = useDispatch();
-  const { logoLists, changeLogoListsDone, deleteLogoListsDone } = useSelector(
-    (state) => state.logoList
-  );
+  const {
+    logoLists,
+    addLogoListsDone,
+    addLogoListsLoading,
+    changeLogoListsDone,
+    deleteLogoListsDone,
+  } = useSelector((state) => state.logoList);
   const orderedLists =
     logoLists && logoLists.slice().sort((a, b) => a.order - b.order);
   const [openForm, setOpenForm] = useState(false);
@@ -70,6 +74,21 @@ const AdminLogoLists = () => {
       window.location.herf = "/adminLogoLists";
     }
   }, [deleteLogoListsDone]);
+  useEffect(() => {
+    if (addLogoListsLoading) {
+      setLoadingMsg("loading");
+      setOpenLoading(true);
+      setOpenForm(false);
+    } else if (addLogoListsDone) {
+      setLoadingMsg("done");
+      setOpenLoading(true);
+      const timeoutId = setTimeout(() => {
+        setOpenLoading(false);
+        window.location.href = "/adminLogoLists";
+      }, 2000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [addLogoListsLoading]);
   return (
     <>
       <AdminSubHeader data={"로고 관리"} />

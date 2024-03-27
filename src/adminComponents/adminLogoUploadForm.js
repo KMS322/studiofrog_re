@@ -76,7 +76,11 @@ const AdminLogoUploadForm = ({ handlePopup }) => {
       console.error("Error uploading:", error);
     }
   };
-
+  useEffect(() => {
+    if (addLogoListsDone) {
+      window.location.reload();
+    }
+  }, [addLogoListsDone]);
   return (
     <div className="adminLogoUploadForm">
       <img src="/images/delete_btn.png" alt="" onClick={handlePopup} />
