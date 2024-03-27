@@ -36,10 +36,11 @@ app.use(
 //   "/contactFiles",
 //   express.static(path.join(__dirname, "public", "contactFiles"))
 // );
-app.use(
-  "/popups",
-  express.static(path.join(__dirname, "./", "public", "popups"))
-);
+// app.use(
+//   "/popups",
+//   express.static(path.join(__dirname, "./", "public", "popups"))
+// );
+app.use("/popups", express.static(path.join(__dirname, "public", "popups")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
