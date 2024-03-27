@@ -86,4 +86,5 @@ router.post("/active", async (req, res, next) => {
     next();
   }
 });
+
 module.exports = router;
