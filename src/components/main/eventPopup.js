@@ -13,7 +13,7 @@ const EventPopup = ({ onClose }) => {
   return (
     <div className="eventPopup">
       <img onClick={onClose} src="/popups/btn_popup_delete.png" alt="" />
-      {popup ? <img src={`/popups/${popup.img_src}`} alt="" /> : ""}
+      {popup ? <img src={`/public/popups/${popup.img_src}`} alt="" /> : ""}
     </div>
   );
 };
