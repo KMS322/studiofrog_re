@@ -19,6 +19,9 @@ import {
   CHANGE_ABOUT_REQUEST,
   CHANGE_ABOUT_SUCCESS,
   CHANGE_ABOUT_FAILURE,
+  UPDATE_LISTS_REQUEST,
+  UPDATE_LISTS_SUCCESS,
+  UPDATE_LISTS_FAILURE,
 } from "../reducers/videoList";
 
 function loadListsAPI() {
@@ -141,6 +144,26 @@ function* deleteList(action) {
   }
 }
 
+function updateListsAPI() {
+  return axios.post("/list/update");
+}
+
+function* updateLists() {
+  try {
+    const result = yield call(updateListsAPI);
+    yield put({
+      type: UPDATE_LISTS_SUCCESS,
+      data: result.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: UPDATE_LISTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+
 function* watchloadLists() {
   yield takeLatest(LOAD_LISTS_REQUEST, loadLists);
 }
@@ -165,6 +188,9 @@ function* watchdeletelist() {
   yield takeLatest(DELETE_LIST_REQUEST, deleteList);
 }
 
+function* watchUpdatelists() {
+  yield takeLatest(UPDATE_LISTS_REQUEST, updateLists);
+}
 export default function* videoListSaga() {
   yield all([
     fork(watchloadLists),
@@ -173,5 +199,6 @@ export default function* videoListSaga() {
     fork(watchChangeMain),
     fork(watchChangeAbout),
     fork(watchchangelists),
+    fork(watchUpdatelists),
   ]);
 }

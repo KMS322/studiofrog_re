@@ -9,7 +9,10 @@ import {
   CHANGE_ABOUT_REQUEST,
 } from "../reducers/videoList";
 import { DELETE_FILE_REQUEST } from "../reducers/contact";
-import { CHANGE_LISTS_REQUEST } from "../reducers/videoList";
+import {
+  CHANGE_LISTS_REQUEST,
+  UPDATE_LISTS_REQUEST,
+} from "../reducers/videoList";
 import UploadForm from "./adminUploadForm";
 import Loading from "./loading";
 import AdminSubHeader from "./adminSubHeader";
@@ -29,11 +32,13 @@ const AdminVideoLists = () => {
   const {
     lists,
     addListsDone,
+    addListsLoading,
     changeListsDone,
     changeMainDone,
     changeAboutDone,
-    addListsLoading,
     deleteListDone,
+    updateListsDone,
+    updateListsLoading,
   } = useSelector((state) => state.videoList);
   // const { deleteFileDone } = useSelector((state) => state.contact);
   const mainList = lists && lists.filter((list) => list.type === "main");
@@ -133,17 +138,15 @@ const AdminVideoLists = () => {
     }
   }, [orderedLists, arrLists]);
   const moveItem = (fromIndex, toIndex) => {
-    const updatedLists = [...arrLists]; // 새로운 배열 생성
+    const updatedLists = [...arrLists];
     const movedItem = updatedLists[fromIndex];
     updatedLists.splice(fromIndex, 1);
     updatedLists.splice(toIndex, 0, movedItem);
-    // 순서 변경 후 order 값 업데이트
     const updatedWithOrder = updatedLists.map((item, index) => ({
       ...item,
       order: index + 1,
     }));
     setArrLists(updatedWithOrder);
-    // 업데이트된 배열을 상태로 설정
   };
   const handleChange = () => {
     dispatch({
@@ -159,6 +162,31 @@ const AdminVideoLists = () => {
     }
   }, [changeListsDone]);
 
+  const handleUpdate = () => {
+    dispatch({
+      type: UPDATE_LISTS_REQUEST,
+    });
+  };
+  useEffect(() => {
+    if (updateListsLoading) {
+      setLoadingMsg("loading");
+      setOpenLoading(true);
+      setOpenForm(false);
+    } else if (updateListsDone) {
+      setLoadingMsg("done");
+      setOpenLoading(true);
+      const timeoutId = setTimeout(() => {
+        setOpenLoading(false);
+        window.location.href = "/adminVideoLists";
+      }, 2000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [updateListsLoading]);
+  useEffect(() => {
+    if (updateListsDone) {
+      window.location.href = "/adminVideoLists";
+    }
+  }, [updateListsDone]);
   return (
     <>
       <AdminSubHeader data={"영상 관리"} />
@@ -292,6 +320,9 @@ const AdminVideoLists = () => {
           </div>
           <div className="change_btn">
             <p onClick={handleChange}>순서저장</p>
+          </div>
+          <div className="update_btn">
+            <p onClick={handleUpdate}>Title Update</p>
           </div>
           {openForm ? (
             <UploadForm
