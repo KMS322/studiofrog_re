@@ -46,6 +46,13 @@ const ContactS1 = () => {
 
       return () => clearTimeout(timeoutId);
     }
+    if (modalOpen && modalMsg === "unChecked") {
+      const timeoutId = setTimeout(() => {
+        setModalOpen(false);
+      }, 1500);
+
+      return () => clearTimeout(timeoutId);
+    }
   }, [modalOpen, modalMsg]);
 
   useEffect(() => {
