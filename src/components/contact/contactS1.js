@@ -18,7 +18,7 @@ const ContactS1 = () => {
   const [selectedFileName, setSelectedFileName] = useState("");
   const [content, setContent] = useState("");
   const [check, setCheck] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalMsg, setModalMsg] = useState("");
   useEffect(() => {
     if (sendEmailDone) {
