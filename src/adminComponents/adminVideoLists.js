@@ -8,7 +8,7 @@ import {
   CHANGE_MAIN_REQUEST,
   CHANGE_ABOUT_REQUEST,
 } from "../reducers/videoList";
-import { DELETE_FILE_REQUEST } from "../reducers/contact";
+// import { DELETE_FILE_REQUEST } from "../reducers/contact";
 import {
   CHANGE_LISTS_REQUEST,
   UPDATE_LISTS_REQUEST,
