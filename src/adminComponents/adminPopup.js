@@ -89,47 +89,51 @@ const AdminPopup = () => {
   return (
     <>
       <AdminSubHeader data={"팝업 관리"} />
-      <div className="adminPopup">
-        <div className="btn_box">
-          <div
-            className={activePopup === "on" ? "btn active" : "btn"}
-            onClick={() => {
-              handleActive("on");
-            }}
-          >
-            ON
-          </div>
-          <div
-            className={activePopup === "off" ? "btn active" : "btn"}
-            onClick={() => {
-              handleActive("off");
-            }}
-          >
-            OFF
-          </div>
-        </div>
-        <div className="label_container">
-          <label htmlFor="file">
-            <div className="upload_btn">
-              <p>팝업 이미지 선택</p>
+      {(me && me === "ganstar95") || me === "admin" ? (
+        <div className="adminPopup">
+          <div className="btn_box">
+            <div
+              className={activePopup === "on" ? "btn active" : "btn"}
+              onClick={() => {
+                handleActive("on");
+              }}
+            >
+              ON
             </div>
-          </label>
-          <input id="file" type="file" onChange={handleFileChange} />
-          <p>{selectedFileName}</p>
+            <div
+              className={activePopup === "off" ? "btn active" : "btn"}
+              onClick={() => {
+                handleActive("off");
+              }}
+            >
+              OFF
+            </div>
+          </div>
+          <div className="label_container">
+            <label htmlFor="file">
+              <div className="upload_btn">
+                <p>팝업 이미지 선택</p>
+              </div>
+            </label>
+            <input id="file" type="file" onChange={handleFileChange} />
+            <p>{selectedFileName}</p>
+          </div>
+          <div className="submit_btn" onClick={handleSubmit}>
+            업로드
+          </div>
+          <p>현재 팝업 이미지 : {popup && popup.img_src}</p>
+          <div
+            className="preview_box"
+            onClick={() => {
+              setOpenPopup(true);
+            }}
+          >
+            미리 보기
+          </div>
         </div>
-        <div className="submit_btn" onClick={handleSubmit}>
-          업로드
-        </div>
-        <p>현재 팝업 이미지 : {popup && popup.img_src}</p>
-        <div
-          className="preview_box"
-          onClick={() => {
-            setOpenPopup(true);
-          }}
-        >
-          미리 보기
-        </div>
-      </div>
+      ) : (
+        ""
+      )}
       {openPopup ? <EventPopup onClose={handleClose} /> : ""}
     </>
   );

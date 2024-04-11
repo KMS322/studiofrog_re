@@ -193,7 +193,7 @@ const AdminVideoLists = () => {
       {/* <div className="file_delete_btn" onClick={deleteFile}>
         첨부파일삭제
       </div> */}
-      {(me && me === "studiofrog95") || me === "admin" ? (
+      {(me && me === "ganstar95") || me === "admin" ? (
         <div className="adminVideoLists">
           <div className="upload_btn">
             <p

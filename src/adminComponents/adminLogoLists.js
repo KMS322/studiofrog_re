@@ -92,7 +92,7 @@ const AdminLogoLists = () => {
   return (
     <>
       <AdminSubHeader data={"로고 관리"} />
-      {(me && me === "studiofrog95") || me === "admin" ? (
+      {(me && me === "ganstar95") || me === "admin" ? (
         <div className="adminLogoLists">
           <div className="upload_btn">
             <p
