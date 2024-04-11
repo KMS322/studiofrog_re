@@ -1,6 +1,7 @@
 import "../css/adminPopup.css";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   ADD_POPUP_REQUEST,
   LOAD_POPUP_REQUEST,
@@ -22,7 +23,8 @@ const AdminPopup = () => {
   const [file, setFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [filePath, setFilePath] = useState("");
-
+  const location = useLocation();
+  const me = location.state && location.state.me;
   const handleFileChange = (e) => {
     const attachedFile = e.target.files[0];
     setFile(attachedFile);
