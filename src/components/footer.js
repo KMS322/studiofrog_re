@@ -23,8 +23,8 @@ const Footer = () => {
         <div className="text_box">
           <p>주소</p>
           <div className="address_box">
-            <p>대구광역시 동구 경안로 722</p>
-            <p>3층 STUDIOFROG</p>
+            <p>대구광역시 남구 이천동 577-20</p>
+            <p>2층 STUDIOFROG</p>
             <p id="pc">.</p>
           </div>
         </div>
