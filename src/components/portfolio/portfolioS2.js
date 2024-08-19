@@ -12,9 +12,11 @@ const PortfolioS2 = () => {
     lists && lists.filter((list) => list.type === "portfolio");
   const chunkSize = 9;
 
+  const sortLists = portfolioLists.sort((a, b) => a.order - b.order);
+
   const divided9Lists =
-    portfolioLists &&
-    portfolioLists.reduce((acc, curr, index) => {
+    sortLists &&
+    sortLists.reduce((acc, curr, index) => {
       const chunkIndex = Math.floor(index / chunkSize);
       if (!acc[chunkIndex]) {
         acc[chunkIndex] = [];
