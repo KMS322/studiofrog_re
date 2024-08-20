@@ -53,11 +53,6 @@ const AdminVideoLists = () => {
     }
   }, [deleteListDone]);
 
-  // useEffect(() => {
-  //   if (deleteFileDone) {
-  //     window.location.href = "/adminVideoLists";
-  //   }
-  // }, [deleteFileDone]);
   useEffect(() => {
     setMainChange(
       !lists || lists.filter((list) => list.type === "main").length === 0
@@ -147,6 +142,18 @@ const AdminVideoLists = () => {
       order: index + 1,
     }));
     setArrLists(updatedWithOrder);
+  };
+  const moveFirst = (index) => {
+    if (index === arrLists.length - 1) {
+      const updatedLists = [...arrLists];
+      const movedItem = updatedLists.pop();
+      updatedLists.unshift(movedItem);
+      const updatedWithOrder = updatedLists.map((item, index) => ({
+        ...item,
+        order: index + 1,
+      }));
+      setArrLists(updatedWithOrder);
+    }
   };
   const handleChange = () => {
     dispatch({
@@ -295,7 +302,15 @@ const AdminVideoLists = () => {
                     <p>{list.file_title}</p>
                     <div className="delete_btn">
                       {index === orderedLists.length - 1 ? (
-                        <p></p>
+                        <p
+                          onClick={() => moveFirst(index)}
+                          style={{
+                            border: "1px solid black",
+                            cursor: "pointer",
+                          }}
+                        >
+                          맨위로 ▲
+                        </p>
                       ) : (
                         <p onClick={() => moveItem(index, index + 1)}>
                           아래로 ▼
