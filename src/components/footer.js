@@ -23,8 +23,14 @@ const Footer = () => {
         <div className="text_box">
           <p>주소</p>
           <div className="address_box">
-            <p>대구광역시 남구 이천동 577-20</p>
-            <p>2층 STUDIOFROG</p>
+            {/* <p>대구광역시 남구 이천동 577-20</p>
+            <p>2층 STUDIOFROG</p> */}
+            <p>경상북도 구미시 옥계북로 36</p>
+            <p>
+              1동 8층 2호 836실
+              <br />
+              (옥계동, 메디칼타워)
+            </p>
             <p id="pc">.</p>
           </div>
         </div>
