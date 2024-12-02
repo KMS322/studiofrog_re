@@ -156,12 +156,14 @@ const AdminVideoLists = () => {
     }
   };
   const handleChange = () => {
-    dispatch({
-      type: CHANGE_LISTS_REQUEST,
-      data: {
-        arrLists,
-      },
-    });
+    if (window.confirm("이 순서로 저장하시겠습니까?")) {
+      dispatch({
+        type: CHANGE_LISTS_REQUEST,
+        data: {
+          arrLists,
+        },
+      });
+    }
   };
   useEffect(() => {
     if (changeListsDone) {

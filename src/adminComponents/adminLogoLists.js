@@ -51,12 +51,14 @@ const AdminLogoLists = () => {
   };
 
   const handleChange = () => {
-    dispatch({
-      type: CHANGE_LOGO_LISTS_REQUEST,
-      data: {
-        lists,
-      },
-    });
+    if (window.confirm("이 순서로 저장하시겠습니까?")) {
+      dispatch({
+        type: CHANGE_LOGO_LISTS_REQUEST,
+        data: {
+          lists,
+        },
+      });
+    }
   };
   useEffect(() => {
     if (changeLogoListsDone) {
